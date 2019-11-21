@@ -4,20 +4,30 @@ public class Goku extends Hero {
     public Goku(String name, int HP, int mana) {
         super(name, HP, mana);
     }
-
+    int c;
+    @Override
+    public void fireThird() {
+        c=mana-50;
+        dmg=12%mana-c;
+        mana=c;
+    }
     @Override
     public void firePrimary() {
-        mana-=5;
+        c=mana-100;
+        dmg=25%mana-c;
+        mana=c;
     }
+
 
     @Override
     public void fireSecondary() {
-        mana-=40;
+        c=mana-75;
+        dmg=17%mana-c;
+        mana=c;
     }
 
     @Override
     public void recieveHit() {
-        HP-=1;
-        mana+=3;
+      HP=HP-super.dmg;
     }
 }
